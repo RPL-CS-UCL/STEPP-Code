@@ -1,0 +1,1 @@
+from .dino_feature_extract import DinoInterface, run_dino_interfacer

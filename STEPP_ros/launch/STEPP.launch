@@ -1,0 +1,18 @@
+<launch>
+    <remap from="/camera/color/image_raw/compressed" to="desired_rgb_image_input_topic_compressed"/>
+    <remap from="/camera/aligned_depth_to_color/image_raw" to="desired_aligned_depth_to_rgb_topic_raw"/>
+    <remap from="/state_estimation" to="desired_odometry_topic"/>
+
+    <node name="inference_node" pkg="STEPP_ros" type="inference_node.py" output="screen" cwd="node" launch-prefix="/home/sebastian/miniconda3/envs/trajectory_extract/bin/python3">
+        <param name="model_path" value="path_to_model_weight.pth"/>
+        <param name='visualize' value='true'/>
+        <param name='ump' value='false'/>
+        <param name='cutoff' value='0.45'/> <!-- Reference value = 0.45 -->
+    </node>
+
+    <!-- also launch the depth_projection_syncrhonized cpp script -->
+    <node name="depth_projection" pkg="STEPP_ros" type="depth_projection_synchronized" output="screen">
+        <param name="camera_type" value="zed2"/>    
+        <param name="decayTime" value="8.0"/> <!-- decay time feature not working yet -->
+    </node>
+</launch>
