@@ -18,7 +18,7 @@
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
-#include <seb_trav_ros/Float32Stamped.h>
+#include <STEPP_ros/Float32Stamped.h>
 
 using namespace std;
 
@@ -34,29 +34,17 @@ float vehicleRoll = 0, vehiclePitch = 0, vehicleYaw = 0;
 float sinVehicleRoll = 0, cosVehicleRoll = 0;
 float sinVehiclePitch = 0, cosVehiclePitch = 0;
 float sinVehicleYaw = 0, cosVehicleYaw = 0;
-<<<<<<< HEAD
-float voxel_size_ = 0.03;
-double noDecayDis = 8.0;
-double minDis = 2.0;
-double clearingDis = 5.0;
-double vehicleHeight = 1.0;
-=======
 float voxel_size_ = 0.1;
 double noDecayDis = 5.0;
 double minDis = 1.5;
 double clearingDis = 3.0;
 double vehicleHeight = 0.5;
->>>>>>> 1fece960f8db8bd08782cc082ed9f25b23ae8ea4
 double decayTime = 8.0;
 double height = 720;
 double width = 1280;
 float fovy;
 float fovx;
-<<<<<<< HEAD
-float azimuth_buff = 50;
-=======
 float azimuth_buff = 0.0;
->>>>>>> 1fece960f8db8bd08782cc082ed9f25b23ae8ea4
 int rows = 1, cols = 1;
 int row_stride = 1, col_stride = 1;
 
@@ -75,7 +63,7 @@ struct CameraIntrinsics {
 CameraIntrinsics intrinsics;
 tf::Transform odomTransform;
 std_msgs::Float32MultiArray loss;
-seb_trav_ros::Float32Stamped losStamped;
+STEPP_ros::Float32Stamped losStamped;
 
 pcl::PointCloud<pcl::PointXYZINormal>::Ptr 
     cloud(new pcl::PointCloud<pcl::PointXYZINormal>);
@@ -126,7 +114,7 @@ pcl::PointXYZ convertTo3DPoint(int u, int v, float depth, const CameraIntrinsics
 
 void callback(const sensor_msgs::Image::ConstPtr& depthMsg,
               const nav_msgs::Odometry::ConstPtr&  odomMsg,
-              const seb_trav_ros::Float32StampedConstPtr& customMsg) {
+              const STEPP_ros::Float32StampedConstPtr& customMsg) {
     
     // if (loss.data.empty()) {  // Check if the loss data is not initialized
     //     ROS_WARN("Loss data not available yet.");
@@ -247,10 +235,10 @@ int main(int argc, char** argv) {
     // Set up subscribers using message_filters
     message_filters::Subscriber<sensor_msgs::Image> depthSub(nh, "/camera/aligned_depth_to_color/image_raw", 1);
     message_filters::Subscriber<nav_msgs::Odometry> odomSub(nh, "/state_estimation", 1);
-    message_filters::Subscriber<seb_trav_ros::Float32Stamped> customMsgSub(nh, "/inference/results_stamped_post", 1);
+    message_filters::Subscriber<STEPP_ros::Float32Stamped> customMsgSub(nh, "/inference/results_stamped_post", 1);
 
     // Create ApproximateTime policy
-    typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, nav_msgs::Odometry, seb_trav_ros::Float32Stamped> MySyncPolicy;
+    typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, nav_msgs::Odometry, STEPP_ros::Float32Stamped> MySyncPolicy;
     message_filters::Synchronizer<MySyncPolicy> sync(MySyncPolicy(10), depthSub, odomSub, customMsgSub);
     sync.setInterMessageLowerBound(ros::Duration(1.5)); // Adjust time tolerance
     sync.registerCallback(boost::bind(&callback, _1, _2, _3));
@@ -267,11 +255,7 @@ int main(int argc, char** argv) {
                             -0.02813342, -0.99932026, -0.02382304,  0.249,
                              0.0,         0.0,         0.0,         1.0;
     
-<<<<<<< HEAD
-    cloudPub = nh.advertise<sensor_msgs::PointCloud2>("/depth_projection_post", 10);
-=======
     cloudPub = nh.advertise<sensor_msgs::PointCloud2>("/depth_projection", 10);
->>>>>>> 1fece960f8db8bd08782cc082ed9f25b23ae8ea4
 
     downSizeFilter.setLeafSize(voxel_size_, voxel_size_, voxel_size_);
 
@@ -320,10 +304,6 @@ int main(int argc, char** argv) {
                     && (((fabs(angle1) > (fovx / 2) - 8*(PI/180) || fabs(angle2) > (fovy / 2))) || dis < minDis)) {  // Use OR instead of AND
                     terrainCloud->push_back(point);
                 }
-<<<<<<< HEAD
-            // ROS_INFO("vehicleZ %f, vehicleHeight %f, point.z %f", vehicleZ, vehicleHeight, point.z);
-=======
->>>>>>> 1fece960f8db8bd08782cc082ed9f25b23ae8ea4
             // ROS_INFO("sysinit %f, depth %f, intensity %f, time diff %f",systemInitTime, depthCloudTime, point.intensity, depthCloudTime - systemInitTime - point.intensity);
             }
 

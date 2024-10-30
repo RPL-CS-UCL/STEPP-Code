@@ -185,12 +185,6 @@ def run_SLIC_segmentation():
     ##############################################
     # This should all be coming from a config file
     ##############################################
-    #read json file
-    # with open('/home/sebastian/ARIA/aria_recordings/OPS_lab/mps_OPS_lab_vrs/ARIA_OPS_lab_pixels.json', 'r') as f:
-    #     path = json.load(f)
-    # # sam_mask = cv2.imread('/home/sebastian/Documents/ANYmal_data/OPS_grass/Masked_data/odom_data_masked/masks/mask_1318.png', cv2.IMREAD_GRAYSCALE)
-    # folder_path = '/home/sebastian/ARIA/aria_recordings/OPS_lab/mps_OPS_lab_vrs/rgb/'
-    # images = sorted([os.path.join(folder_path, img) for img in os.listdir(folder_path) if img.endswith((".png", ".jpg", ".jpeg"))])
     img_width = 1408
     img_height = 1408
     x_boarder = 200
@@ -198,9 +192,8 @@ def run_SLIC_segmentation():
     number = 10
     # pixels = path[number]
     # img_path = images[number]
-    img_path = '/home/sebastian/Documents/anymal_experiment_rosbag/000280.png'
+    img_path = 'path_to_test_image'
     print('img_path:', img_path)
-    # img_path = '/home/sebastian/Documents/Unreal_data/SebDatasets/TownStreetsDataset/1/200_1.png'
     # ##############################################
 
     # #plot the image with the pixels
@@ -261,10 +254,10 @@ def run_SLIC_segmentation():
     
 
     # with Timer('overlay_images'):
-    #     output_img_1, pixels_1 = overlay_images_1(img_path, '/home/sebastian/Documents/Unreal_data/SebDatasets/TownStreetsDataset/2/200_2.png')
+    #     output_img_1, pixels_1 = overlay_images_1(img_path, 'path_to_test_image')
 
     # with Timer('overlay_images'):
-    #     output_img_2, pixels_2 = overlay_images_2(img_path, '/home/sebastian/Documents/Unreal_data/SebDatasets/TownStreetsDataset/2/200_2.png')
+    #     output_img_2, pixels_2 = overlay_images_2(img_path, 'path_to_test_image')
 
     # print(pixels_1 == pixels_2)
     # print(pixels_1[:10])

@@ -27,8 +27,8 @@ def overlay_images(n1_path, n2_path):
 
         return output_image, pixels
 
-path_to_image_folder = '/home/sebastian/Documents/Unreal_data/SebDatasets/CityParkDataset/1'
-path_to_trajectory_folder = '/home/sebastian/Documents/Unreal_data/SebDatasets/CityParkDataset/2'
+path_to_image_folder = 'path_to_image_folder'
+path_to_trajectory_folder = 'path_to_trajectory_folder'
 
 images = sorted([os.path.join(path_to_image_folder, img) for img in os.listdir(path_to_image_folder) if img.endswith((".png", ".jpg", ".jpeg"))])
 trajectory_images = sorted([os.path.join(path_to_trajectory_folder, img) for img in os.listdir(path_to_trajectory_folder) if img.endswith((".png", ".jpg", ".jpeg"))])
@@ -44,7 +44,7 @@ for i in range(len(images)):
     print('processed image:', i,'/', len(images), end='\r')
 
 #save the pixels to json
-path = '/home/sebastian/Documents/Unreal_data/SebDatasets/CityParkDataset/CityPark_pixels.json'
+path = 'path_to_save_pixels.json'
 with open(path, 'w') as f:
     json.dump(all_pixels, f)
 

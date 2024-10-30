@@ -35,7 +35,7 @@ def main():
     orientations = []
     directions = []
 
-    folder_path = '/home/sebastian/Documents/ANYmal_data/OPS_grass/odom_chosen_images_2/'
+    folder_path = 'path_to_image_folder'
     images = sorted([os.path.join(folder_path, img) for img in os.listdir(folder_path) if img.endswith((".png", ".jpg", ".jpeg"))])
     img_file_names = [os.path.basename(img) for img in images]
 
@@ -46,8 +46,7 @@ def main():
     pub2 = rospy.Publisher('/trajectory2', odom, queue_size=10)
 
     # Load the coordinates and orientations
-    coordinates_path = '/home/sebastian/Documents/code/Trajectory_extract/odom_data.txt'
-    # coordinates_path = '/home/sebastian/Documents/code/Trajectory_extract/odom_data_halfsecond.txt'
+    coordinates_path = 'path_to_txt_file_containing_odometry_data'
 
     T_odom_list = []
     with open(coordinates_path, 'r') as file:

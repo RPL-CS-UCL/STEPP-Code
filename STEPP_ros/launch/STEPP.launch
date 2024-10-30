@@ -3,7 +3,7 @@
     <remap from="/camera/aligned_depth_to_color/image_raw" to="desired_aligned_depth_to_rgb_topic_raw"/>
     <remap from="/state_estimation" to="desired_odometry_topic"/>
 
-    <node name="inference_node" pkg="STEPP_ros" type="inference_node.py" output="screen" cwd="node" launch-prefix="/home/sebastian/miniconda3/envs/trajectory_extract/bin/python3">
+    <node name="inference_node" pkg="STEPP_ros" type="inference_node.py" output="screen" cwd="node" launch-prefix="path_to_python_env">
         <param name="model_path" value="path_to_model_weight.pth"/>
         <param name='visualize' value='true'/>
         <param name='ump' value='false'/>

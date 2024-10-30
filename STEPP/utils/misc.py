@@ -5,7 +5,7 @@ import torch
 import matplotlib.pyplot as plt
 import os
 import cv2
-from seb_trav import ROOT_DIR
+from STEPP import ROOT_DIR
 
 def make_results_folder(name):
     path = os.path.join(ROOT_DIR, "results", name)
@@ -34,7 +34,7 @@ def get_img_from_fig(fig, dpi=180):
     return buf
 
 def load_test_image():
-    np_img = cv2.imread(os.path.join(ROOT_DIR, "/home/sebastian/Documents/anymal_experiment_rosbag/000280.png"))
+    np_img = cv2.imread(os.path.join(ROOT_DIR, "path_to_test_image"))
     np_img = np_img[200:-200, 200:-200]
     img = torch.from_numpy(cv2.cvtColor(np_img, cv2.COLOR_BGR2RGB))
     img = img.permute(2, 0, 1)

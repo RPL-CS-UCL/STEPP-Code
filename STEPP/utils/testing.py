@@ -1,9 +1,9 @@
 import torch
-from seb_trav.model.mlp import ReconstructMLP
-from seb_trav.utils.misc import load_image
-from seb_trav.SLIC.slic_segmentation import SLIC
-from seb_trav.utils.make_dataset import FeatureDataSet
-from seb_trav.DINO.dino_feature_extract import DinoInterface, get_dino_features, average_dino_feature_segment
+from STEPP.model.mlp import ReconstructMLP
+from STEPP.utils.misc import load_image
+from STEPP.SLIC.slic_segmentation import SLIC
+from STEPP.utils.make_dataset import FeatureDataSet
+from STEPP.DINO.dino_feature_extract import DinoInterface, get_dino_features, average_dino_feature_segment
 import cv2
 import matplotlib.pyplot as plt
 from matplotlib import cm
@@ -252,13 +252,12 @@ def test_feature_reconstructor_with_model(mode,model, image_path, thresh):
     return fig
     
 if __name__ == '__main__':
-    model_path = '/home/sebastian/Documents/code/seb_trav/results/trained_model/richmond_forest_full_ViT_small_big_nn_checkpoint_20240821-1825.pth'
-    # model_path = '/home/sebastian/Documents/code/seb_trav/results/trained_model/OPS_lab_02_ViT_small_big_nn_checkpoint_20240808-2235.pth'
-    image_path = '/home/sebastian/Documents/small_forest.png'
+    model_path = 'path_to_model.pth'
+    image_path = 'path_to_test_image.png'
     threshold = 0.15
     test_feature_reconstructor('segment_wise',model_path, image_path, threshold)
 
     #save figure to test folder
     count = time.strftime("%Y%m%d-%H%M")
-    plt.savefig('/home/sebastian/Documents/code/seb_trav/tests/test'+ count +'.png')
+    plt.savefig('folder_to_save_figure'+ count +'.png')
     plt.show()

@@ -198,7 +198,7 @@ def run_dino_interfacer():
     """Performance inference using DINOv2VIT and stores result as an image."""
 
     from pytictac import Timer
-    from seb_trav.utils.misc import get_img_from_fig, load_test_image, make_results_folder, remove_axes
+    from STEPP.utils.misc import get_img_from_fig, load_test_image, make_results_folder, remove_axes
     import matplotlib.pyplot as plt
 
     #supress warnings

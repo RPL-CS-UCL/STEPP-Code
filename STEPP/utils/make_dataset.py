@@ -9,13 +9,13 @@ from pytictac import Timer
 import warnings
 import argparse
 
-from seb_trav import ROOT_DIR
-from seb_trav.DINO import run_dino_interfacer
-from seb_trav.DINO.dino_feature_extract import DinoInterface
-from seb_trav.SLIC.slic_segmentation import SLIC
-from seb_trav.utils import misc
-from seb_trav.utils.misc import load_image
-from seb_trav.DINO.dino_feature_extract import get_dino_features, average_dino_feature_segment
+from STEPP import ROOT_DIR
+from STEPP.DINO import run_dino_interfacer
+from STEPP.DINO.dino_feature_extract import DinoInterface
+from STEPP.SLIC.slic_segmentation import SLIC
+from STEPP.utils import misc
+from STEPP.utils.misc import load_image
+from STEPP.DINO.dino_feature_extract import get_dino_features, average_dino_feature_segment
 
 
 class FeatureDataSet:
@@ -120,19 +120,11 @@ def main(feat):
 
 if __name__ == '__main__':
 
-    #add arguments if its being called from the command line
-    parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('--number', type=str, help='path to the right richmond image folder')
-    args = parser.parse_args()
-    
-    number = args.number
-    filepath = '/home/sebastian/ARIA/aria_recordings/Richmond_forest/'
-
-    path_to_image_folder = filepath + '/mps_Richmond_forest_'+number+'_vrs/rgb'
-    path_to_pixels = filepath + '/mps_Richmond_forest_'+number+'_vrs/ARIA_richmond_forest_'+number+'_pixels.json'
-    data_preprocessing = FeatureDataSet(path_to_image_folder, path_to_pixels, )
+    path_to_image_folder = 'path_to_image_folder'
+    path_to_pixels = 'path_to_pixels.json'
+    data_preprocessing = FeatureDataSet(path_to_image_folder, path_to_pixels)
     dataset = main(data_preprocessing)
 
     #save dataset
-    result_folder = misc.make_results_folder('Richmond_forest_dataset_ump')
-    np.save(result_folder + '/richmond_forest_DINO_ump_vit_small_size_700_number_'+number, dataset)
+    dataset_path = 'path_to_save_dataset'
+    np.save(dataset_path, dataset)

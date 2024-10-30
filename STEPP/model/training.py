@@ -173,7 +173,7 @@ class TrainFeatureReconstructor():
 
         # test on one validation image
         mode = 'segment_wise'
-        test_image_path = '/home/sebastian/ARIA/aria_recordings/Richmond_forest/mps_Richmond_forest_09_vrs/rgb/000388.png'
+        test_image_path = 'path_to_test_image'
         figure = test_feature_reconstructor_with_model(mode,self.model, test_image_path)
         return dict(test_loss=test_loss, test_plot=figure)
 
@@ -215,5 +215,5 @@ class TrainFeatureReconstructor():
 if __name__ == '__main__':
     wandb.init(project='STEPP')
 
-    path_to_features = f'/home/sebastian/Documents/code/seb_trav/results/all_non_ump/'
+    path_to_features = f'path_to_features'
     TrainFeatureReconstructor(path_to_features, epochs=1000000).main()

@@ -48,7 +48,7 @@ if __name__ == '__main__':
     try:
         # Parameters
         image_topic = "/rgb/image_rect_color/compressed"  # Set the image topic
-        save_directory = "/home/sebastian/Documents/anymal_experiment_rosbag/sebastian_experiments/road/"  # Set the directory to save images
+        save_directory = "path_to_save_folder"  # Set the directory to save images
 
         # Create the ImageSaver object
         image_saver = ImageSaver(image_topic, save_directory)
