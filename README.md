@@ -56,7 +56,7 @@ The following trained checkpoints are included in the repo:
 | Modelname   | Dataset| Image resolutions| DINOv2 size |MLP architecture|
 |-------------|--------|---------------------|-------------|---------|
 | [`richmond_forest.pth`](\\wsl.localhost\Ubuntu-20.04\home\sebastian\code\STEPP-Code\checkpoints\richmond_forest_full_ViT_small_big_nn_checkpoint_20240821-1825.pth) |Richmond Forest| 700x700 | dinov2_vits14 |bin_nn|
-| [`unreal_synthetic_data.pth`](https://download.europe.naverlabs.com/ComputerVision/DUSt3R/DUSt3R_ViTLarge_BaseDecoder_512_linear.pth)  |Unreal synthetic Data| 700x700 | dinov2_vits14 |big_nn|
+| [`unreal_synthetic_data.pth`](https://download.europe.naverlabs.com/ComputerVision/DUSt3R/DUSt3R_ViTLarge_BaseDecoder_512_linear.pth)  |Unreal engine synthetic Data| 700x700 | dinov2_vits14 |big_nn|
 | [`all_data.pth`](\checkpoints\unreal_full_ViT_small_big_nn_checkpoint_20240819-2003.pth)|Richmond Forest, Unreal synthetic Data | 700x700 | dinov2_vits14 |big_nn|
 
 ## Usage ##
