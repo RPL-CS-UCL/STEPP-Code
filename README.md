@@ -1,4 +1,4 @@
-# Watch your STEPP: Semantic Traversibility Estimation using Pose Projected Features #
+# Watch your STEPP: Semantic Traversability Estimation using Pose Projected Features #
 ![demo](assets/front_page.png)
 
 **Authors**: [Sebastian Aegidius*](https://rvl.cs.toronto.edu/), [Dennis Hadjivelichkov](https://dennisushi.github.io/), [Jianhao Jiao](https://gogojjh.github.io/), [Jonathan Embly-Riches](https://rpl-as-ucl.github.io/people/), [Dimitrios Kanoulas](https://dkanou.github.io/)
