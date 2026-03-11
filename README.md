@@ -87,6 +87,12 @@ https://github.com/HongbiaoZ/autonomous_exploration_development_environment
 If you think any of our work was useful, please connsider citing it:
 
 ```bibtex
-Coming soon
-```
+@inproceedings{aegidius2025stepp,
+  author    = {Sebastian Ægidius and Dennis Hadjivelichkov and Jianhao Jiao and Jonathan Embley-Riches and Dimitrios Kanoulas},
+  title     = {Watch Your STEPP: Semantic Traversability Estimation Using Pose Projected Features},
+  booktitle = {Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2025},
+  pages     = {2376--2382},
+  doi       = {10.1109/ICRA55743.2025.11127781}
+}```
 
